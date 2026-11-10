@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9fc">
+  <title>محمد عاطف عثمان | Mohamed Atef Osman</title>
+  <style>
+    :root{--ink:#172033;--muted:#68758a;--blue:#2563eb;--pale:#eff6ff;--line:#e5eaf2;--bg:#f7f9fc}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f7faff 0%,#f7f9fc 100%);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;display:grid;place-items:center;padding:24px}
+    .card{width:min(100%,470px);background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 18px 55px rgba(28,54,94,.09)}
+    .top{display:flex;justify-content:flex-end}
+    .lang{border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:999px;padding:8px 15px;font-weight:700;cursor:pointer}
+    .intro{text-align:center;padding:18px 0 24px}
+    .monogram{width:76px;height:76px;margin:0 auto 17px;border-radius:24px;background:linear-gradient(145deg,#eaf2ff,#f4f7ff);display:grid;place-items:center;color:var(--blue);font-size:25px;font-weight:800;letter-spacing:1px}
+    h1{font-size:27px;line-height:1.35;margin:0 0 5px}
+    .latin{font-size:16px;color:var(--muted);direction:ltr}
+    .save{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:var(--blue);color:#fff;padding:15px 18px;border-radius:15px;font-weight:750;margin:0 0 22px;box-shadow:0 8px 18px rgba(37,99,235,.18)}
+    .section-title{font-size:13px;color:var(--muted);font-weight:750;margin:22px 2px 10px}
+    .links{display:grid;gap:10px}
+    .item{display:flex;align-items:center;gap:13px;padding:13px 14px;border:1px solid var(--line);border-radius:15px;text-decoration:none;color:var(--ink);transition:.15s}
+    .item:hover{border-color:#b9cdf7;background:#fbfdff;transform:translateY(-1px)}
+    .ico{width:39px;height:39px;border-radius:12px;background:var(--pale);display:grid;place-items:center;color:var(--blue);font-weight:800;font-size:17px;flex:0 0 auto}
+    .label{font-weight:700}
+    .sub{font-size:12px;color:var(--muted);direction:ltr;text-align:start;margin-top:2px}
+    footer{text-align:center;color:#9aa4b4;font-size:11px;margin-top:25px}
+    [dir="ltr"] .sub{text-align:start}
+    @media(max-width:420px){body{padding:12px}.card{padding:22px;border-radius:23px}h1{font-size:24px}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="top"><button class="lang" id="lang" type="button">English</button></div>
+    <header class="intro">
+      <div class="monogram" aria-hidden="true">MA</div>
+      <h1 id="nameAr">محمد عاطف عثمان</h1>
+      <div class="latin" id="nameEn">Mohamed Atef Osman</div>
+    </header>
+
+    <a class="save" href="mohamed-atef-osman.vcf" download id="save">＋ حفظ جهة الاتصال</a>
+
+    <div class="section-title" id="contactTitle">تواصل معي</div>
+    <div class="links">
+      <a class="item" href="tel:+201022459909"><span class="ico">☎</span><span><div class="label" id="phoneLabel">اتصال هاتفي</div><div class="sub">+20 102 245 9909</div></span></a>
+      <a class="item" href="https://wa.me/201022459909" target="_blank" rel="noopener"><span class="ico">W</span><span><div class="label">WhatsApp</div><div class="sub">+20 102 245 9909</div></span></a>
+      <a class="item" href="mailto:mohamedatef3098@gmail.com"><span class="ico">✉</span><span><div class="label" id="emailLabel">البريد الإلكتروني</div><div class="sub">mohamedatef3098@gmail.com</div></span></a>
+    </div>
+
+    <div class="section-title" id="socialTitle">حساباتي الاجتماعية</div>
+    <div class="links">
+      <a class="item" href="https://www.facebook.com/share/1ABH3RhN7W/" target="_blank" rel="noopener"><span class="ico">f</span><span><div class="label">Facebook</div><div class="sub">Facebook profile</div></span></a>
+      <a class="item" href="https://www.instagram.com/medo.osman?dlrf=b2t2dWJkbm8zMTV6" target="_blank" rel="noopener"><span class="ico">◎</span><span><div class="label">Instagram</div><div class="sub">@medo.osman</div></span></a>
+      <a class="item" href="https://www.snapchat.com/add/atef249615" target="_blank" rel="noopener"><span class="ico">S</span><span><div class="label">Snapchat</div><div class="sub">@atef249615</div></span></a>
+    </div>
+    <footer id="footer">بطاقة تواصل رقمية</footer>
+  </main>
+<script>
+  const translations = {
+    ar: {dir:"rtl",button:"English",save:"＋ حفظ جهة الاتصال",contact:"تواصل معي",phone:"اتصال هاتفي",email:"البريد الإلكتروني",social:"حساباتي الاجتماعية",footer:"بطاقة تواصل رقمية"},
+    en: {dir:"ltr",button:"العربية",save:"＋ Save Contact",contact:"Get in touch",phone:"Call me",email:"Email",social:"Social media",footer:"Digital contact card"}
+  };
+  let current = "ar";
+  document.getElementById("lang").addEventListener("click", () => {
+    current = current === "ar" ? "en" : "ar";
+    const t = translations[current];
+    document.documentElement.lang = current;
+    document.documentElement.dir = t.dir;
+    document.getElementById("lang").textContent = t.button;
+    document.getElementById("save").textContent = t.save;
+    document.getElementById("contactTitle").textContent = t.contact;
+    document.getElementById("phoneLabel").textContent = t.phone;
+    document.getElementById("emailLabel").textContent = t.email;
+    document.getElementById("socialTitle").textContent = t.social;
+    document.getElementById("footer").textContent = t.footer;
+    document.getElementById("nameAr").hidden = current === "en";
+    document.getElementById("nameEn").hidden = current === "ar";
+  });
+  document.getElementById("nameEn").hidden = true;
+</script>
+</body>
+</html>
